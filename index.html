@@ -27,7 +27,7 @@ header{position:fixed;z-index:40;top:0;left:0;right:0;padding:17px 5vw;display:f
 .btn:hover{background:var(--red2);transform:translateY(-3px);box-shadow:0 15px 45px #c91e3c55}
 .hero-bottom{position:absolute;bottom:28px;left:8vw;right:8vw;display:flex;justify-content:space-between;color:#a99a9d;font:600 .6rem 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase}
 .hero-photo{position:absolute;z-index:1;right:10%;top:20%;width:min(32vw,390px);height:56%;border:8px solid #111;box-shadow:0 25px 70px #000b;transform:rotate(3deg);overflow:hidden;background:linear-gradient(140deg,#461320,#171116);display:grid;place-items:center}
-.hero-photo img{width:100%;height:100%;object-fit:cover}.hero-photo span{font:600 .65rem 'Space Grotesk';letter-spacing:.1em;color:#cdbfc2;text-align:center;padding:12px}
+.hero-photo img{width:100%;height:100%;object-fit:cover}.hero-photo span{display:none;font:600 .65rem 'Space Grotesk';letter-spacing:.1em;color:#cdbfc2;text-align:center;padding:12px}.hero-photo.image-missing span{display:block}
 .ticker{overflow:hidden;background:#190d13;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 0}
 .ticker-track{white-space:nowrap;display:inline-block;animation:marquee 30s linear infinite;font:600 .75rem 'Space Grotesk';letter-spacing:.25em;text-transform:uppercase;color:#e8c6ca}
 .ticker b{color:var(--red2);padding:0 28px}@keyframes marquee{to{transform:translateX(-50%)}}
@@ -51,9 +51,9 @@ h2 em{font:italic 500 1em 'Playfair Display';text-transform:none;letter-spacing:
 .gallery{display:grid;grid-template-columns:1.15fr .85fr .85fr;grid-template-rows:230px 230px;gap:14px}
 .shot{position:relative;overflow:hidden;background:linear-gradient(145deg,#35121e,#171116);border:1px solid #ffffff22;display:grid;place-items:center;text-align:center;color:#c7b2b7}
 .shot:first-child{grid-row:span 2}.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s}.shot:hover img{transform:scale(1.06)}
-.shot span{position:relative;z-index:1;background:#09090bd9;padding:9px 12px;font:600 .62rem 'Space Grotesk';letter-spacing:.12em;text-transform:uppercase}.shot:has(img[src]) span{display:none}
+.shot span{display:none;position:relative;z-index:1;background:#09090bd9;padding:9px 12px;font:600 .62rem 'Space Grotesk';letter-spacing:.12em;text-transform:uppercase}.shot.image-missing span{display:block}
 .caption{color:var(--muted);font-size:.76rem;margin-top:15px}
-.solo{background:#110c10}.solo-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:7vw;align-items:center}.cover-photo{height:500px;position:relative;background:linear-gradient(145deg,#551629,#120c11);border:8px solid #1b171a;box-shadow:0 25px 70px #0009;transform:rotate(-2deg);overflow:hidden;display:grid;place-items:center}.cover-photo img{width:100%;height:100%;object-fit:cover}.cover-photo span{font:600 .7rem 'Space Grotesk';letter-spacing:.15em;text-align:center;color:#ddcbd0;padding:15px}.cover-label{position:absolute;bottom:18px;left:18px;background:#09090be8;padding:9px 12px;font:600 .6rem 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase}
+.solo{background:#110c10}.solo-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:7vw;align-items:center}.cover-photo{height:500px;position:relative;background:linear-gradient(145deg,#551629,#120c11);border:8px solid #1b171a;box-shadow:0 25px 70px #0009;transform:rotate(-2deg);overflow:hidden;display:grid;place-items:center}.cover-photo img{width:100%;height:100%;object-fit:cover}.cover-photo span{display:none;font:600 .7rem 'Space Grotesk';letter-spacing:.15em;text-align:center;color:#ddcbd0;padding:15px}.cover-photo.image-missing span{display:block}.cover-label{position:absolute;bottom:18px;left:18px;background:#09090be8;padding:9px 12px;font:600 .6rem 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:38px}.card{border:1px solid var(--line);background:#151116;padding:25px;min-height:180px;text-align:left;color:var(--white);transition:.25s}.card:hover{border-color:var(--red2);transform:translateY(-4px)}.card small{font:600 .6rem 'Space Grotesk';letter-spacing:.2em;color:var(--red2);text-transform:uppercase}.card h3{font:600 1.45rem 'Space Grotesk';margin:17px 0 10px}.card p{display:none;color:var(--muted);font-size:.88rem;line-height:1.7}.card.open p{display:block}
 .letter-zone{max-width:none;background:linear-gradient(125deg,#210c15,#0c090c);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .letter-inner{max-width:900px;margin:auto;text-align:center}.letter{max-width:700px;margin:42px auto 0;background:#eee4dc;color:#2d1b1d;padding:clamp(28px,6vw,65px);text-align:left;box-shadow:0 30px 80px #0009;transform:rotate(-.7deg)}
@@ -73,9 +73,9 @@ footer h2{font-size:clamp(3.4rem,10vw,9rem);line-height:.85}footer h2 em{display
 <header><div class="brand">V / <span>22</span> · Birthday Edition</div><div class="nav">A night made for Vaibhav</div></header>
 <main>
 <section class="hero" id="top">
-  <div class="hero-photo"><img src="vaibhav-cover.jpg.jpeg" alt="Birthday boy" onerror="this.remove()"><span>Add his best solo picture<br>vaibhav-cover.jpg.jpeg</span></div>
+  <div class="hero-photo"><img src="vaibhav-cover.jpg.jpeg" alt="Birthday boy" onerror="this.remove();this.parentElement.classList.add('image-missing')"><span>Add his best solo picture<br>vaibhav-cover.jpg.jpeg</span></div>
   <div class="hero-content">
-    <div class="eyebrow">A private celebration · 21 November edition</div>
+    <div class="eyebrow">A private celebration · 22 November edition</div>
     <h1>THE<br><span>22ND</span><br>EDITION.</h1>
     <p class="hero-copy">For the guy who somehow makes every room his photoshoot. Tonight, the spotlight is officially yours.</p>
     <a class="btn" href="#birthday">Enter the celebration <b>↘</b></a>
@@ -106,18 +106,17 @@ footer h2{font-size:clamp(3.4rem,10vw,9rem);line-height:.85}footer h2 em{display
 <section class="photo-section" id="memories">
   <div class="heading-row"><div><div class="tag">03 / The camera roll</div><h2>Us, in <em>frames.</em></h2></div><p class="lead">The pretty pictures, the chaotic ones, the ones we keep going back to. A tiny gallery of our favourite kind of memories.</p></div>
   <div class="gallery">
-    <div class="shot"><img src="couple-1.jpeg" alt="Together" onerror="this.remove()"><span>couple-1.jpg · a favourite together</span></div>
-    <div class="shot"><img src="vaibhav%20solo-2.jpeg" alt="Vaibhav" onerror="this.remove()"><span>vaibhav-solo-2.jpg · his moment</span></div>
-    <div class="shot"><img src="couple-2.jpeg" alt="Together" onerror="this.remove()"><span>couple-2.jpg · us</span></div>
-    <div class="shot"><img src="vaibhav-solo-3.jpeg" alt="Vaibhav" onerror="this.remove()"><span>vaibhav-solo-3.jpg · the birthday boy</span></div>
-    <div class="shot"><img src="couple-3.jpeg" alt="Together" onerror="this.remove()"><span>couple-3.jpg · another favourite</span></div>
+    <div class="shot"><img src="couple-1.jpeg" alt="Together" onerror="this.remove();this.parentElement.classList.add('image-missing')"><span>couple-1.jpg · a favourite together</span></div>
+    <div class="shot"><img src="vaibhav%20solo-2.jpeg" alt="Vaibhav" onerror="this.remove();this.parentElement.classList.add('image-missing')"><span>vaibhav-solo-2.jpg · his moment</span></div>
+    <div class="shot"><img src="couple-2.jpeg" alt="Together" onerror="this.remove();this.parentElement.classList.add('image-missing')"><span>couple-2.jpg · us</span></div>
+    <div class="shot"><img src="vaibhav-solo-3.jpeg" alt="Vaibhav" onerror="this.remove();this.parentElement.classList.add('image-missing')"><span>vaibhav-solo-3.jpg · the birthday boy</span></div>
+    <div class="shot"><img src="couple-3.jpeg" alt="Together" onerror="this.remove();this.parentElement.classList.add('image-missing')"><span>couple-3.jpg · another favourite</span></div>
   </div>
-  <p class="caption">Add your photos to the photos folder using the exact filenames shown. Use a mix of couple photos and his solo pictures. The solo portraits are part of the gallery too.</p>
 </section>
 
 <section class="solo" id="cover">
   <div class="solo-grid">
-    <div class="cover-photo"><img src="photos-vaibhav%20solo.jpeg" alt="Vaibhav portrait" onerror="this.remove()"><span>Add a solo picture of him<br>photos-vaibhav%20solo.jpeg</span><div class="cover-label">The birthday issue · cover star</div></div>
+    <div class="cover-photo"><img src="photos-vaibhav%20solo.jpeg" alt="Vaibhav portrait" onerror="this.remove();this.parentElement.classList.add('image-missing')"><span>Add a solo picture of him<br>photos-vaibhav%20solo.jpeg</span><div class="cover-label">The birthday issue · cover star</div></div>
     <div><div class="tag">04 / The cover star</div><h2>Let's be honest.<br>You do love <em>the camera.</em></h2>
       <p class="lead">So here's your own magazine-cover moment. Because today, the spotlight belongs exactly where it should: on you.</p>
       <p class="lead">Keep being ambitious. Keep doing your thing. And please, for once, accept a compliment without acting surprised. You know you look good.</p>
