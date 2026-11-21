@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09090b">
+<title>VAIBHAV — The 22nd Edition</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--bg:#09090b;--panel:#121115;--panel2:#1d1118;--white:#f6f2ef;--muted:#aaa1a4;--red:#c91e3c;--red2:#f04c68;--silver:#c9c8cb;--line:#ffffff22;--gold:#d5b995}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+button,a{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
+.loader{position:fixed;inset:0;background:#09090b;z-index:100;display:grid;place-items:center;transition:opacity .8s,visibility .8s}
+.loader.hide{opacity:0;visibility:hidden}.loader-inner{text-align:center}.loader-num{font:500 clamp(4rem,15vw,9rem) 'Space Grotesk';letter-spacing:-.1em;color:var(--red2)}.loader-label{font:600 .65rem 'Space Grotesk';letter-spacing:.3em;color:#aaa;text-transform:uppercase}
+.progress{width:180px;height:2px;background:#ffffff22;margin:22px auto}.progress i{display:block;height:100%;width:0;background:var(--red2);animation:load 1.4s ease forwards}@keyframes load{to{width:100%}}
+header{position:fixed;z-index:40;top:0;left:0;right:0;padding:17px 5vw;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(#09090be8,transparent);backdrop-filter:blur(5px)}
+.brand,.nav{font:600 .65rem 'Space Grotesk';letter-spacing:.22em;text-transform:uppercase}.brand span{color:var(--red2)}.nav{color:#c2b7b9}
+.hero{min-height:100svh;position:relative;display:flex;align-items:center;padding:130px 8vw 90px;overflow:hidden;background:radial-gradient(ellipse at 72% 42%,#8e102d55,transparent 33%),radial-gradient(ellipse at 15% 95%,#4d112655,transparent 40%),linear-gradient(125deg,#09090b,#1a0c13 65%,#09090b)}
+.hero:before{content:"";position:absolute;right:5%;top:13%;width:48%;height:74%;border:1px solid #ffffff2a;background:linear-gradient(145deg,#ffffff0a,#b6193a18 55%,#00000055);transform:skewY(-5deg)}
+.hero:after{content:"22";position:absolute;right:8%;top:13%;font:700 clamp(14rem,37vw,37rem)/.8 'Space Grotesk';letter-spacing:-.13em;color:#ffffff09;pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:820px}.eyebrow{font:600 .66rem 'Space Grotesk';letter-spacing:.3em;text-transform:uppercase;color:var(--red2)}
+.hero h1{font:700 clamp(4.3rem,12vw,10.8rem)/.78 'Space Grotesk';letter-spacing:-.095em;text-transform:uppercase;margin:26px 0}
+.hero h1 span{display:block;color:transparent;-webkit-text-stroke:1px var(--silver);font-weight:500;margin-left:9vw}
+.hero-copy{font-size:clamp(.98rem,1.7vw,1.17rem);line-height:1.8;color:#d0c3c5;max-width:430px}
+.btn{display:inline-flex;align-items:center;gap:20px;background:var(--red);border:1px solid var(--red);color:#fff;padding:15px 22px;font:700 .68rem 'Space Grotesk';letter-spacing:.17em;text-transform:uppercase;transition:.25s}
+.btn:hover{background:var(--red2);transform:translateY(-3px);box-shadow:0 15px 45px #c91e3c55}
+.hero-bottom{position:absolute;bottom:28px;left:8vw;right:8vw;display:flex;justify-content:space-between;color:#a99a9d;font:600 .6rem 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase}
+.hero-photo{position:absolute;z-index:1;right:10%;top:20%;width:min(32vw,390px);height:56%;border:8px solid #111;box-shadow:0 25px 70px #000b;transform:rotate(3deg);overflow:hidden;background:linear-gradient(140deg,#461320,#171116);display:grid;place-items:center}
+.hero-photo img{width:100%;height:100%;object-fit:cover}.hero-photo span{font:600 .65rem 'Space Grotesk';letter-spacing:.1em;color:#cdbfc2;text-align:center;padding:12px}
+.ticker{overflow:hidden;background:#190d13;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:17px 0}
+.ticker-track{white-space:nowrap;display:inline-block;animation:marquee 30s linear infinite;font:600 .75rem 'Space Grotesk';letter-spacing:.25em;text-transform:uppercase;color:#e8c6ca}
+.ticker b{color:var(--red2);padding:0 28px}@keyframes marquee{to{transform:translateX(-50%)}}
+section{padding:110px 8vw;max-width:1400px;margin:auto}.tag{font:600 .64rem 'Space Grotesk';letter-spacing:.28em;text-transform:uppercase;color:var(--red2);margin-bottom:20px}
+h2{font:600 clamp(2.8rem,7vw,6.6rem)/.96 'Space Grotesk';letter-spacing:-.075em;text-transform:uppercase;margin:0}
+h2 em{font:italic 500 1em 'Playfair Display';text-transform:none;letter-spacing:-.04em;color:var(--red2)}
+.lead{max-width:660px;color:var(--muted);line-height:1.9;font-size:1.02rem;margin-top:24px}
+.bday-grid{display:grid;grid-template-columns:1.1fr .8fr;gap:8vw;align-items:center}
+.big22{font:500 clamp(7rem,18vw,15rem)/.8 'Playfair Display';color:transparent;-webkit-text-stroke:1px #eee0e1;letter-spacing:-.1em}
+.big22 small{display:block;color:var(--red2);-webkit-text-stroke:0;font:600 .65rem 'Space Grotesk';letter-spacing:.3em;text-transform:uppercase;margin:22px 0 0 12px}
+.side-note{border-left:1px solid var(--red);padding:8px 0 8px 24px;color:#d4c5c8;line-height:1.9;margin-top:35px}
+.side-note strong{color:#fff}
+.party{max-width:none;background:linear-gradient(120deg,#1c0b12,#0b090b 65%);border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center;padding-left:8vw;padding-right:8vw}
+.cake-stage{min-height:360px;display:grid;place-items:center;position:relative;background:radial-gradient(ellipse,#a21b3d44,transparent 65%)}
+.cake{position:relative;width:205px;height:125px;border-radius:12px 12px 22px 22px;background:linear-gradient(90deg,#681127,#bd2d4a 48%,#651025);box-shadow:0 28px 65px #000b,inset 0 12px #f2d1ca}
+.cake:before{content:"";position:absolute;left:0;right:0;top:33px;height:20px;background:#f0d5ca;border-radius:50%;box-shadow:0 9px 0 #8b1c35}
+.cake:after{content:"";position:absolute;left:28px;right:28px;bottom:-17px;height:21px;background:#420b1b;border-radius:0 0 50% 50%}
+.candles{position:absolute;top:-75px;left:50%;transform:translateX(-50%);display:flex;gap:23px}.candle{height:65px;width:9px;background:repeating-linear-gradient(135deg,#f8f2ed 0 5px,#c9a5aa 5px 10px);position:relative;border-radius:3px}.flame{position:absolute;top:-21px;left:-3px;width:15px;height:21px;background:radial-gradient(ellipse at 50% 70%,#fff7bf 0 20%,#ff9c35 53%,transparent 73%);filter:drop-shadow(0 0 12px #ff9c35);border-radius:50%;animation:flicker .7s infinite alternate}@keyframes flicker{to{transform:scale(.8) rotate(5deg);opacity:.75}}
+.cake.off .flame{display:none}.cake-caption{text-align:center;color:#d4b7bb;font:italic 1.1rem 'Playfair Display';margin-top:35px}
+.photo-section .heading-row{display:flex;justify-content:space-between;align-items:end;gap:35px;margin-bottom:38px}.photo-section .heading-row .lead{max-width:380px;margin:0}
+.gallery{display:grid;grid-template-columns:1.15fr .85fr .85fr;grid-template-rows:230px 230px;gap:14px}
+.shot{position:relative;overflow:hidden;background:linear-gradient(145deg,#35121e,#171116);border:1px solid #ffffff22;display:grid;place-items:center;text-align:center;color:#c7b2b7}
+.shot:first-child{grid-row:span 2}.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s}.shot:hover img{transform:scale(1.06)}
+.shot span{position:relative;z-index:1;background:#09090bd9;padding:9px 12px;font:600 .62rem 'Space Grotesk';letter-spacing:.12em;text-transform:uppercase}.shot:has(img[src]) span{display:none}
+.caption{color:var(--muted);font-size:.76rem;margin-top:15px}
+.solo{background:#110c10}.solo-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:7vw;align-items:center}.cover-photo{height:500px;position:relative;background:linear-gradient(145deg,#551629,#120c11);border:8px solid #1b171a;box-shadow:0 25px 70px #0009;transform:rotate(-2deg);overflow:hidden;display:grid;place-items:center}.cover-photo img{width:100%;height:100%;object-fit:cover}.cover-photo span{font:600 .7rem 'Space Grotesk';letter-spacing:.15em;text-align:center;color:#ddcbd0;padding:15px}.cover-label{position:absolute;bottom:18px;left:18px;background:#09090be8;padding:9px 12px;font:600 .6rem 'Space Grotesk';letter-spacing:.2em;text-transform:uppercase}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:38px}.card{border:1px solid var(--line);background:#151116;padding:25px;min-height:180px;text-align:left;color:var(--white);transition:.25s}.card:hover{border-color:var(--red2);transform:translateY(-4px)}.card small{font:600 .6rem 'Space Grotesk';letter-spacing:.2em;color:var(--red2);text-transform:uppercase}.card h3{font:600 1.45rem 'Space Grotesk';margin:17px 0 10px}.card p{display:none;color:var(--muted);font-size:.88rem;line-height:1.7}.card.open p{display:block}
+.letter-zone{max-width:none;background:linear-gradient(125deg,#210c15,#0c090c);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.letter-inner{max-width:900px;margin:auto;text-align:center}.letter{max-width:700px;margin:42px auto 0;background:#eee4dc;color:#2d1b1d;padding:clamp(28px,6vw,65px);text-align:left;box-shadow:0 30px 80px #0009;transform:rotate(-.7deg)}
+.letter:before{content:"A PERSONAL NOTE · NOT FOR THE INTERNET";display:block;font:600 .58rem 'Space Grotesk';letter-spacing:.2em;color:#a02b43;margin-bottom:26px}
+.letter p{font:1rem/1.95 'Playfair Display',serif}.letter .sign{font:italic 1.5rem 'Playfair Display';color:#a02b43;margin-top:25px}
+.secret-zone{text-align:center}.secret-box{padding:clamp(35px,7vw,85px);border:1px solid #ffffff25;background:radial-gradient(ellipse at center,#71162d55,transparent 70%)}
+.secret-box p{max-width:600px;color:var(--muted);line-height:1.8;margin:24px auto}.secret{display:none;max-width:700px;margin:30px auto 0;color:#f2c6ce;font:italic clamp(1.35rem,3vw,2rem)/1.5 'Playfair Display'}.secret.show{display:block;animation:rise .8s ease}@keyframes rise{from{opacity:0;filter:blur(8px);transform:translateY(15px)}to{opacity:1;filter:none;transform:none}}
+footer{text-align:center;padding:120px 20px 70px;background:radial-gradient(ellipse at 50% 0,#67152c66,transparent 60%),#080709;border-top:1px solid var(--line)}
+footer h2{font-size:clamp(3.4rem,10vw,9rem);line-height:.85}footer h2 em{display:block}footer p{color:var(--muted);line-height:1.8;margin-top:30px}
+.music{position:fixed;z-index:45;bottom:18px;right:18px;background:#1a1118ed;border:1px solid #ffffff44;color:white;padding:12px 16px;font:600 .62rem 'Space Grotesk';letter-spacing:.13em;text-transform:uppercase;backdrop-filter:blur(12px)}
+@media(max-width:800px){.hero-photo{right:6%;top:20%;width:34vw;height:42%;opacity:.7}.hero:before{right:3%;width:57%}.bday-grid,.party,.solo-grid{grid-template-columns:1fr}.photo-section .heading-row{display:block}.photo-section .heading-row .lead{margin-top:18px}.gallery{grid-template-columns:1fr 1fr;grid-template-rows:250px 180px 180px}.shot:first-child{grid-row:auto;grid-column:span 2}.cards{grid-template-columns:1fr 1fr}.cover-photo{height:430px;max-width:420px;margin:auto}section{padding:85px 6vw}}
+@media(max-width:500px){.nav{display:none}.hero{padding-left:6vw}.hero-photo{width:38vw;height:32%;top:22%;right:5%;opacity:.48}.hero h1{font-size:18vw}.hero-bottom{left:6vw;right:6vw;font-size:.5rem}.cards{grid-template-columns:1fr}.gallery{grid-template-rows:220px 155px 155px}.cake-stage{min-height:300px}.cover-photo{height:370px}}
+</style>
+</head>
+<body>
+<div class="loader" id="loader"><div class="loader-inner"><div class="loader-num">22</div><div class="loader-label">Preparing your birthday experience</div><div class="progress"><i></i></div></div></div>
+<header><div class="brand">V / <span>22</span> · Birthday Edition</div><div class="nav">A night made for Vaibhav</div></header>
+<main>
+<section class="hero" id="top">
+  <div class="hero-photo"><img src="photos/vaibhav-cover.jpg" alt="Birthday boy" onerror="this.remove()"><span>Add his best solo picture<br>photos/vaibhav-cover.jpg</span></div>
+  <div class="hero-content">
+    <div class="eyebrow">A private celebration · 21 November edition</div>
+    <h1>THE<br><span>22ND</span><br>EDITION.</h1>
+    <p class="hero-copy">For the guy who somehow makes every room his photoshoot. Tonight, the spotlight is officially yours.</p>
+    <a class="btn" href="#birthday">Enter the celebration <b>↘</b></a>
+  </div>
+  <div class="hero-bottom"><span>Made exclusively for Vaibhav</span><span>Scroll to explore ↓</span></div>
+</section>
+
+<div class="ticker"><div class="ticker-track">HAPPY BIRTHDAY VAIBHAV <b>✦</b> TONIGHT IS YOURS <b>✦</b> MAIN CHARACTER ENERGY <b>✦</b> YOUR NIGHT, YOUR RULES <b>✦</b> HAPPY BIRTHDAY VAIBHAV <b>✦</b> TONIGHT IS YOURS <b>✦</b> MAIN CHARACTER ENERGY <b>✦</b> YOUR NIGHT, YOUR RULES <b>✦</b></div></div>
+
+<section id="birthday">
+  <div class="bday-grid">
+    <div><div class="tag">01 / The birthday boy</div><h2>Another year.<br>More reasons<br>to <em>show off.</em></h2>
+      <p class="lead">Happy Birthday, Vaibhav. Today is all about you — your smile, your big plans, your favourite things and the person you are becoming.</p>
+      <p class="lead">I hope this year brings you big wins, good health, new adventures, ridiculous happiness and everything you've been working towards. Keep becoming the person you want to be. I'll be cheering for you.</p>
+    </div>
+    <div><div class="big22">22<small>Looks good on you.</small></div><div class="side-note">Countless memories. One person who still makes me smile — and occasionally roll my eyes. <strong>Happy birthday, my Hagre.</strong></div></div>
+  </div>
+</section>
+
+<section class="party" id="cake">
+  <div><div class="tag">02 / Cake, candles, birthday wishes</div><h2>Make a wish.<br>It's your <em>night.</em></h2>
+    <p class="lead">A birthday deserves a cake moment. Take a breath, make your wish and tap the button. No peeking at the wish, obviously.</p>
+    <button class="btn" id="blow" type="button" aria-pressed="false">Blow out the candles ✦</button><p class="caption" id="wish">Your wish is between you and the universe.</p>
+  </div>
+  <div class="cake-stage"><div><div class="cake" id="cakeDisplay"><div class="candles"><i class="candle"><b class="flame"></b></i><i class="candle"><b class="flame"></b></i><i class="candle"><b class="flame"></b></i></div></div><div class="cake-caption">A little sweetness for my favourite person.</div></div></div>
+</section>
+
+<section class="photo-section" id="memories">
+  <div class="heading-row"><div><div class="tag">03 / The camera roll</div><h2>Us, in <em>frames.</em></h2></div><p class="lead">The pretty pictures, the chaotic ones, the ones we keep going back to. A tiny gallery of our favourite kind of memories.</p></div>
+  <div class="gallery">
+    <div class="shot"><img src="photos/couple-1.jpg" alt="Together" onerror="this.remove()"><span>couple-1.jpg · a favourite together</span></div>
+    <div class="shot"><img src="photos/vaibhav-solo-2.jpg" alt="Vaibhav" onerror="this.remove()"><span>vaibhav-solo-2.jpg · his moment</span></div>
+    <div class="shot"><img src="photos/couple-2.jpg" alt="Together" onerror="this.remove()"><span>couple-2.jpg · us</span></div>
+    <div class="shot"><img src="photos/vaibhav-solo-3.jpg" alt="Vaibhav" onerror="this.remove()"><span>vaibhav-solo-3.jpg · the birthday boy</span></div>
+    <div class="shot"><img src="photos/couple-3.jpg" alt="Together" onerror="this.remove()"><span>couple-3.jpg · another favourite</span></div>
+  </div>
+  <p class="caption">Add your photos to the photos folder using the exact filenames shown. Use a mix of couple photos and his solo pictures. The solo portraits are part of the gallery too.</p>
+</section>
+
+<section class="solo" id="cover">
+  <div class="solo-grid">
+    <div class="cover-photo"><img src="photos/vaibhav-solo.jpg" alt="Vaibhav portrait" onerror="this.remove()"><span>Add a solo picture of him<br>photos/vaibhav-solo.jpg</span><div class="cover-label">The birthday issue · cover star</div></div>
+    <div><div class="tag">04 / The cover star</div><h2>Let's be honest.<br>You do love <em>the camera.</em></h2>
+      <p class="lead">So here's your own magazine-cover moment. Because today, the spotlight belongs exactly where it should: on you.</p>
+      <p class="lead">Keep being ambitious. Keep doing your thing. And please, for once, accept a compliment without acting surprised. You know you look good.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="letter-zone" id="letter">
+  <div class="letter-inner"><div class="tag">06 / A little less teasing</div><h2>From me,<br><em>to you.</em></h2>
+    <div class="letter">
+      <p>Dear Hagre,</p>
+      <p>I wanted to make you something different this year. Not just a gift, but a little reminder of how much you mean to me.</p>
+      <p>Somehow, even the ordinary moments with you become memories I want to keep — the funny ones, the random ones and the ones that only make sense to us.</p>
+      <p>I love how passionate you get about the things you enjoy, how determined you can be and all the little things that make you exactly who you are. Even when you annoy me (which happens more than you admit), you're still my favourite person to come back to.</p>
+      <p>I hope 22 is a year of growth, confidence, good health, new experiences and achievements that make you proud. I hope you get everything you've been working for, and I hope you never forget how loved you are.</p>
+      <p>Thank you for being my person. Here's to more stories, more laughter, more adventures and more of us.</p>
+      <p>Happy Birthday, Vaibhav. I love you.</p>
+      <div class="sign">Always your girl. ♡</div>
+    </div>
+  </div>
+</section>
+
+<section class="secret-zone" id="surprise">
+  <div class="secret-box"><div class="tag">07 / Not quite the end</div><h2>Your last<br><em>birthday surprise.</em></h2>
+    <p>You've had the spotlight, the cake and all the attention. But I saved one last message just for you.</p>
+    <button class="btn" id="secretBtn">Unlock it, birthday boy ↗</button>
+    <div class="secret" id="secretText">You're still the person I want to tell everything to. I hope you know how special you are to me. Now close this tab, come find me and collect your birthday kiss. ♡</div>
+  </div>
+</section>
+</main>
+<footer><div class="eyebrow">End of the birthday edition · not our story</div><h2>Still my<br><em>favourite plot twist.</em></h2><p>Happy 22nd, Vaibhav.<br>Here's to everything you're becoming — and everything we're yet to experience together.</p><p class="caption">Made with love, a little attitude and a lot of affection. · Your girl</p></footer>
+<audio id="song" src="music/our-song.mp3" loop></audio><button class="music" id="musicBtn">♫ Play our song</button>
+<script>
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hide'),1500));
+document.getElementById('blow').addEventListener('click',()=>{const c=document.getElementById('cakeDisplay');const isOff=c.classList.toggle('off');const off=isOff;document.getElementById('wish').textContent=off?'Wish made. I hope it comes true. ♡':'Your wish is between you and the universe.';document.getElementById('blow').textContent=off?'Relight the candles ↻':'Blow out the candles ✦';document.getElementById('blow').setAttribute('aria-pressed',String(off))});
+document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('open')));
+document.getElementById('secretBtn').addEventListener('click',()=>{const s=document.getElementById('secretText');s.classList.toggle('show');document.getElementById('secretBtn').textContent=s.classList.contains('show')?'Keep this one close ♡':'Unlock it, birthday boy ↗'});
+const audio=document.getElementById('song'),music=document.getElementById('musicBtn');music.addEventListener('click',async()=>{if(audio.paused){try{await audio.play();music.textContent='Ⅱ Pause our song'}catch(e){music.textContent='Add music/our-song.mp3 first'}}else{audio.pause();music.textContent='♫ Play our song'}});
+</script>
+</body>
+</html>
